@@ -9,7 +9,16 @@
 	<body>
 		<canvas class="fireworks"></canvas>
 	</body>
-	<script type="text/javascript">//fireworks
+	<script type="text/javascript">
+		anime({
+		  targets: 'div',
+		  translateX: 250,
+		  rotate: '1turn',
+		  backgroundColor: '#FFF',
+		  duration: 800
+		});
+	</script>
+	<script>//fireworks
 		window.human = true;
 
 		var canvasEl = document.querySelector('.fireworks');
@@ -18,7 +27,7 @@
 		var pointerX = 0;
 		var pointerY = 0;
 		var tap = ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown';
-		var colors = ['#ff8082', '#49b0ff', '#e490ff', '#93fbea'];
+		var colors = ['#ff2081', '#e75fa8', '#ff67d7', '#d42d92','#ffaaff','#8687d4','#d400b1','#9145d4'];
 
 		function setCanvasSize() {
 			canvasEl.width = window.innerWidth *2;
@@ -35,7 +44,7 @@
 
 		function setParticuleDirection(p) {
 			var angle = anime.random(0, 360) * Math.PI / 180;
-			var value = anime.random(50, 180);
+			var value = anime.random(0, 180);
 			var radius = [-1, 1][anime.random(0, 1)] * value;
 			return {
 				x: p.x + radius * Math.cos(angle),
